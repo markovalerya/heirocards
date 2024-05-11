@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Личный кабинет
+{% endblock %}
+
+{% block content %}
+<h2>Личный кабинет</h2>
+<p>Логин:    {{ person.login }}</p>
+<p>Фамилия: {{ person.surname }}</p>
+<p>Имя: {{ person.name }}</p>
+
+<table width="1000">
+        {% for card in cards %}
+        <tr>
+            <td align="center"><img src="{{ card.image.url }}" width="800" class="card-img-top"></td>
+            <td><a hidden href="/card/edit/{{card.id}}">Изменить</a></td>
+            <td><a href="{{ card.image.url }}" download>Скачать</a></td>
+        </tr>
+        {% endfor %}
+
+
+</table>
+
+{% endblock %}

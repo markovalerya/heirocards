@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+{% block title %}
+Авторизация
+{% endblock %}
+
+
+{% block content %}
+<form method="post">
+    <h1 align="center">Авторизация</h1>
+    {% csrf_token %}
+    {# Общие ошибки при авторизации пользователя #}
+    <div class="form-error">{{ form.non_field_errors }}</div>
+        <table>
+        {% for f in form %}
+        <tr>
+            <td>
+                {{ f }}
+                <div class="form-error">{{ f.errors }}</div>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <button type="submit">Войти</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Генерация фона
+{% endblock %}
+
+{% block content %}
+<form method="post" enctype="multipart/form-data">
+    <h2 class = "reg" align="center">Генерация фона</h2>
+    {% csrf_token %}
+    <table>
+        {% for field in form %}
+        <tr>
+            <td>{{ field.label }}</td>
+            <td>{{ field }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <button type="submit">Сгенерировать</button>
+</form>
+{% endblock %}

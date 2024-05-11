@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Заполнение визитки
+{% endblock %}
+
+{% block content %}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h2>Заполнение текста визитки</h2>
+    <table>
+        {% for field in form_text %}
+        <tr>
+            <td>{{ field.label }}</td>
+            <td>{{ field }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <button type="submit">Готово</button>
+</form>
+<img src="/card/res/{{ back }}" width="500" class="card-img-top">
+{% endblock %}
